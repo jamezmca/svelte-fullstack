@@ -6,9 +6,9 @@ app.use(require('cors')())
 
 
 app.get('/:ticker', async (req, res) => {
-    //going to start off with two stocks
+    //read from db here first
     const { ticker } = req.params
-    const { api_key } = req.query
+    const { api_key } = req.query //localhost:8008/mrna?api_key=askjasldkjfhlads
     if (!ticker) { return res.status(400).send({ message: 'Please include stock ticker' }) }
     try {
         const stockInfoType = await Promise.all(['key-statistics', 'history'].map(async (type) => {
@@ -71,9 +71,12 @@ app.get('/:ticker', async (req, res) => {
                     }, {})
                     return valuationMeasures
                 })
-                return { valuationMeasures: statsArea[0] }
+                return { financials: statsArea[0] }
             }
         }))
+
+        //save to db before this step
+
         res.status(200).send({
             [ticker]: stockInfoType.reduce((acc, curr) => {
                 return { ...acc, [Object.keys(curr)[0]]: Object.values(curr)[0] }
