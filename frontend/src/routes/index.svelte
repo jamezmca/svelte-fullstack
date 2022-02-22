@@ -1,6 +1,7 @@
 <script context="module">
+    //get started with tailwind svelte
 	//whenever doing api calls use context="module"
-	export async function load({ fetch }) {
+	export async function load({ fetch, params }) { //where params is url params
 		const stocks = ['pypl', 'v'];
 		const baseUrl = 'http://localhost:8008/';
 		const data = await Promise.all(
@@ -9,9 +10,6 @@
 				return await res.json()
 			})
 		);
-        console.log(data)
-		// const data = await res.json();
-		// console.log(data);
 		if (data) {
 			return {
 				props: {
@@ -23,11 +21,13 @@
 </script>
 
 <script>
+import AddStock from '../components/AddStock.svelte';
+
 	import StockList from '../components/StockList.svelte';
 	export let stocks;
 </script>
-
-<section>
+<AddStock/>
+<section class="flex flex-column">
 	<StockList {stocks} />
 </section>
 
