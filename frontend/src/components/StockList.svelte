@@ -17,7 +17,7 @@
 <div class="max-w-full overflow-scroll flex gap-4">
 	{#each columns as col}
 		<div class="min-w-fit">
-			<div class="text-lg">
+			<div class="">
 				{col}
 			</div>
 			<div class="">
