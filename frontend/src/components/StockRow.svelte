@@ -1,10 +1,19 @@
 <script>
 	export let stock;
-    console.log(stock)
+    const stockTicker = Object.keys(stock)[0]
+    const financials = stock[stockTicker].financials
+    console.log(financials)
+    const grid = []
+    for (const financial of financials) {
+        
+    }
 </script>
 
-<h1>dope</h1>
+<div class="flex">
+	<!-- {#each stock as item}
+		<h3>{item} james</h3>
+	{/each} -->
+</div>
 
 <style>
-    
 </style>

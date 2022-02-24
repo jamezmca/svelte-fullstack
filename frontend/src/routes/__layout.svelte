@@ -9,6 +9,7 @@
 
 <Nav/>
 
-<div class="mx-auto max-w-prose">
+<!-- <div class="mx-auto max-w-prose"> -->
+<div class="">
     <slot />
 </div>
