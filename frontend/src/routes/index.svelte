@@ -52,7 +52,10 @@
 				return await res.json();
 			})
 		);
-		stocks = data;
+		stocks = data.filter(stock => {
+			const ticker = Object.keys(stock)[0]
+			return stock[ticker].prices.length > 50
+		});
 	}
 </script>
 
