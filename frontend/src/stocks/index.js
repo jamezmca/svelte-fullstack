@@ -1,5 +1,5 @@
 import { writable } from "svelte/store";
 
-const StockStore = writable(['pypl', 'v'])
+const StockStore = writable()
 
 export default StockStore

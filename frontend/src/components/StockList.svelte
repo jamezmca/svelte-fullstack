@@ -6,9 +6,6 @@
 		return Object.keys(key[1].financials);
 	})[0];
 
-	// ['Stock Ticker', ...stocks].forEach((stock) => {
-	// 	console.log(stock);
-	// });
 </script>
 
 <div class="max-w-full overflow-auto flex gap-8 pt-3 px-4">
