@@ -1,15 +1,15 @@
 <script>
-    import "../app.css"
-    import Nav from '../components/Nav.svelte'
+	import '../app.css';
+	import Nav from '../components/Nav.svelte';
 </script>
 
 <svelte:head>
-    <title>Stocks</title>
+	<title>Stocks</title>
 </svelte:head>
 
-<Nav/>
+<Nav />
 
 <!-- <div class="mx-auto max-w-prose"> -->
 <div class="">
-    <slot />
+	<slot />
 </div>

@@ -1,8 +1,11 @@
-<nav class="flex justify-between">
-    <div>James</div>
-    <button>+</button>
+<script>
+	import AddStock from './AddStock.svelte';
+    export let stocks;
+</script>
+
+<nav class="">
+	<AddStock />
 </nav>
 
 <style>
-
 </style>

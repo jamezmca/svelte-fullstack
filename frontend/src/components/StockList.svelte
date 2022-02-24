@@ -5,22 +5,26 @@
 		const [key] = Object.entries(stock);
 		return Object.keys(key[1].financials);
 	})[0];
-	console.log(rowTitles);
-	['Stock Ticker', ...stocks].forEach((stock) => {
-		console.log(stock);
-	});
+
+	// ['Stock Ticker', ...stocks].forEach((stock) => {
+	// 	console.log(stock);
+	// });
 </script>
 
-<div class="max-w-full overflow-scroll flex gap-4">
-	{#each [{ 'Stock Ticker': 0 }, ...stocks] as stock}
-		<div class="min-w-fit">
-			{Object.keys(stock)[0]}
+<div class="max-w-full overflow-auto flex gap-8 pt-3 px-4">
+	{#each [{ 'Ticker': 0 }, ...stocks] as stock}
+		<div class=" flex flex-col gap-1">
+			<div class="uppercase font-bold">
+				{Object.keys(stock)[0]}
+			</div>
 			{#each rowTitles as financial}
 				<div>
-					{#if Object.keys(stock)[0] === 'Stock Ticker'}
+					{#if Object.keys(stock)[0] === 'Ticker'}
 						{financial}
 					{:else}
+					<div class="text-right">
 						{stock[Object.keys(stock)[0]].financials[financial]}
+					</div>
 					{/if}
 				</div>
 			{/each}
