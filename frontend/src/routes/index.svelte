@@ -2,7 +2,7 @@
     //get started with tailwind svelte
 	//whenever doing api calls use context="module"
 	export async function load({ fetch, params }) { //where params is url params
-		const stocks = ['pypl', 'v', 'mrna', 'rklb'];
+		const stocks = ['pypl', 'v'];
 		const baseUrl = 'http://localhost:8008/';
 		const data = await Promise.all(
 			stocks.map(async (stock) => {
