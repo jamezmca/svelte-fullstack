@@ -1,10 +1,20 @@
 import { writable } from "svelte/store";
-import { persistStore } from "./persistStore";
+import { browser } from '$app/env';
 
 export const modal = writable(null)
 
 const defaultStocks = []
-const StockStore = persistStore('stockTickerList', defaultStocks)
+const initialValue = browser ? JSON.parse(window.localStorage.getItem('stockTickerList')) ?? defaultStocks : defaultStocks;
+const StockStore = writable(initialValue)
+
+StockStore.subscribe((val) => {
+    if (browser) {
+        window.localStorage.setItem('stockTickerList', JSON.stringify(val))
+    }
+})
+
+
+
 // console.log(localStorage)
 // const stored = ['pypl']//localStorage.getItem('stockTickerList')
 // const StockStore = writable(stored || [])

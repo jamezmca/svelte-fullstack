@@ -2,18 +2,23 @@
 	//get started with tailwind svelte
 	//whenever doing api calls use context="module"
 	console.log('first');
-
+	// import { getStores, navigating, page, session, updated } from '$app/stores';
 	import StockStore from '../stocks';
 	let stocks = [];
-	const unsub = StockStore.subscribe((val) => (stocks = val));
-	console.log(stocks);
+	const unsub = StockStore.subscribe((val) => {
+		console.log('second', val)
+		stocks = val;
+	});
 	//can also use the $ syntax somehow
 	// StockStore.update((curr) => {
 	// 	return [...new Set(stocks)];
 	// });
 	export async function load({ fetch, params }) {
 		//where params is url params
+		// console.log(console.log(getStores(StockStore)))
+		console.log('here')
 		const baseUrl = 'http://localhost:8008/';
+		console.log(typeof stocks)
 		const data = await Promise.all(
 			stocks.map(async (stock) => {
 				const res = await fetch(baseUrl + stock);

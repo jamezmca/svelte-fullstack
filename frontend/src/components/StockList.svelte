@@ -43,7 +43,7 @@
 {#if showGraph}
 	<Popup {toggleGraph}>
 		<div>
-			<div class="mx-auto w-screen h-48 max-h-screen h-10 pt-4 relative overflow-hidden">
+			<div class="mx-auto w-screen h-48 max-h-screen pt-4 relative overflow-hidden">
 				{#each vals as val}
 					<div
 						class="absolute h-0.5 w-0.5 bg-amber-200"
