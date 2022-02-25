@@ -8,6 +8,7 @@ app.use(require('cors')())
 app.get('/:ticker', async (req, res) => {
     //read from db here first
     const { ticker } = req.params
+    console.log(`Requesting ${ticker} data`)
     const { api_key } = req.query //localhost:8008/mrna?api_key=askjasldkjfhlads
     if (!ticker) { return res.status(400).send({ message: 'Please include stock ticker' }) }
     try {

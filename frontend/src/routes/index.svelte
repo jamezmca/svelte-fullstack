@@ -6,7 +6,7 @@
 	const unsub = StockStore.subscribe((val) => {
 		stocks = val;
 	});
-	unsub()
+	unsub();
 	//can also use the $ syntax somehow
 	// StockStore.update((curr) => {
 	// 	return [...new Set(stocks)];
@@ -47,14 +47,19 @@
 	$: getData($StockStore);
 
 	async function getData(newTickers) {
+		const oldTickers = stocks.map((val) => Object.keys(val)[0]);
+		if (newTickers.length < oldTickers.length) {
+			return (stocks = stocks.filter((val) => newTickers.includes(Object.keys(val)[0])));
+		}
+		let difference = newTickers.filter((x) => !oldTickers.includes(x));
 		const baseUrl = 'http://localhost:8008/';
 		const data = await Promise.all(
-			newTickers.map(async (stock) => {
+			difference.map(async (stock) => {
 				const res = await fetch(baseUrl + stock);
 				return await res.json();
 			})
 		);
-		stocks = data.filter((stock) => {
+		stocks = [...data, ...stocks].filter((stock) => {
 			const ticker = Object.keys(stock)[0];
 			return stock[ticker]?.prices?.length > 50;
 		});
