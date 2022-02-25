@@ -59,7 +59,7 @@
 	}
 </script>
 
-<section class="flex flex-column">
+<section class="flex flex-column relative">
 	<StockList {stocks} />
 </section>
 

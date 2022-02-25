@@ -7,9 +7,9 @@
 	<title>Stocks</title>
 </svelte:head>
 
-<Nav />
 
+<Nav />
 <!-- <div class="mx-auto max-w-prose"> -->
-<div class="">
+<div class="min-h-screen">
 	<slot />
 </div>
