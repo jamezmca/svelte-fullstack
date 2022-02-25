@@ -1,9 +1,6 @@
 <script>
-	import { modal } from '../stocks';
 	import StockStore from '../stocks';
-	import StockRow from './StockRow.svelte';
 	import Popup from './Popup.svelte';
-	import { null_to_empty } from 'svelte/internal';
 	export let stocks;
 	const rowTitles = stocks.map((stock) => {
 		const [key] = Object.entries(stock);
@@ -78,7 +75,7 @@
 						on:click={toggleShow(Object.keys(stock)[0])}
 					>
 						<div class="relative z-10 select-none">
-							{Object.keys(stock)[0]}
+							{Object.keys(stock)[0]} <br />
 						</div>
 						{#if show && ticker == Object.keys(stock)[0]}
 							<div class="absolute inset-0 flex bg-white z-20 cursor-pointer select-none">
@@ -103,7 +100,7 @@
 					</div>
 				{/if}
 			</div>
-			{#each rowTitles as financial}
+			{#each ['Day Price', ...rowTitles] as financial}
 				<div>
 					{#if Object.keys(stock)[0] === 'Ticker'}
 						<div class="truncate">
@@ -111,7 +108,11 @@
 						</div>
 					{:else}
 						<div class="text-right">
+							{#if financial !== 'Day Price'}
 							{stock[Object.keys(stock)[0]].financials[financial]}
+							{:else}
+							${stock[Object.keys(stock)[0]].prices[0]}
+							{/if}
 						</div>
 					{/if}
 				</div>

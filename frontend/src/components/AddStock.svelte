@@ -2,7 +2,7 @@
 	let inputValue = '';
 	let active = true;
 	import StockStore from '../stocks';
-	//save new stock
+
 	async function updateStocks() {
 		if (inputValue === '') {
 			return;
