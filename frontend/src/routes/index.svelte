@@ -41,7 +41,7 @@
 	// }); //returns unsub function that i could use onDestroy()
 	import { onMount } from 'svelte';
 	onMount(() => {
-		console.log($StockStore);
+		// console.log($StockStore);
 	});
 
 	$: getData($StockStore);

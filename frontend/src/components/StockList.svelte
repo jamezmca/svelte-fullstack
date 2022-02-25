@@ -28,7 +28,6 @@
 			vals = stocks.find((stock) => Object.keys(stock)[0] === ticker)[ticker].prices;
 			max = Math.max(...vals);
 			min = Math.min(...vals);
-			console.log(max, min);
 		} else {
 			vals = [];
 			min = null;

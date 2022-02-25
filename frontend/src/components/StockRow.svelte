@@ -2,7 +2,6 @@
 	export let stock;
     const stockTicker = Object.keys(stock)[0]
     const financials = stock[stockTicker].financials
-    console.log(financials)
     const grid = []
     for (const financial of financials) {
         
