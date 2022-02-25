@@ -1,12 +1,16 @@
 <script context="module">
 	//get started with tailwind svelte
 	//whenever doing api calls use context="module"
-	let stocks = ['pypl', 'v']; //read from db or localstorage
-	//can also use the $ syntax somehow
+	console.log('first');
+
 	import StockStore from '../stocks';
-	StockStore.update((curr) => {
-		return [...new Set(stocks)];
-	});
+	let stocks = [];
+	const unsub = StockStore.subscribe((val) => (stocks = val));
+	console.log(stocks);
+	//can also use the $ syntax somehow
+	// StockStore.update((curr) => {
+	// 	return [...new Set(stocks)];
+	// });
 	export async function load({ fetch, params }) {
 		//where params is url params
 		const baseUrl = 'http://localhost:8008/';
@@ -52,15 +56,17 @@
 				return await res.json();
 			})
 		);
-		stocks = data.filter(stock => {
-			const ticker = Object.keys(stock)[0]
-			return stock[ticker].prices.length > 50
+		stocks = data.filter((stock) => {
+			const ticker = Object.keys(stock)[0];
+			return stock[ticker]?.prices?.length > 50;
 		});
 	}
 </script>
 
 <section class="flex flex-column relative">
-	<StockList {stocks} />
+	{#if stocks.length > 0}
+		<StockList {stocks} />
+	{/if}
 </section>
 
 <!-- //styling is scoped -->
