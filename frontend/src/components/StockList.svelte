@@ -11,7 +11,7 @@
 <div class="max-w-full overflow-auto flex gap-8 pt-3 px-4">
 	{#each [{ Ticker: 0 }, ...stocks] as stock}
 		<div class=" flex flex-col gap-1">
-			<div class="uppercase font-bold">
+			<div class="uppercase font-bold text-xl">
 				{#if Object.keys(stock)[0] == 'Ticker'}
 					<div class="">{Object.keys(stock)[0]}</div>
 				{:else}
