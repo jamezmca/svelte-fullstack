@@ -25,7 +25,7 @@
 	function toggleGraph() {
 		showGraph = !showGraph;
 		if (showGraph) {
-			vals = stocks.find((stock) => Object.keys(stock)[0] === ticker)[ticker].prices;
+			vals = stocks.find((stock) => Object.keys(stock)[0] === ticker)[ticker].prices.map(val => val.replace(',', ''));
 			max = Math.max(...vals);
 			min = Math.min(...vals);
 		} else {
@@ -33,7 +33,9 @@
 			min = null;
 			max = null;
 		}
+		console.log(max, min)
 	}
+
 </script>
 
 {#if showGraph}

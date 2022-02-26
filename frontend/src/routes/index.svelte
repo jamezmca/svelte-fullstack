@@ -45,7 +45,7 @@
 	});
 
 	$: getData($StockStore);
-
+	console.log(stocks)
 	async function getData(newTickers) {
 		const oldTickers = stocks.map((val) => Object.keys(val)[0]);
 		if (newTickers.length < oldTickers.length) {
