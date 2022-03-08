@@ -1,2 +1,2 @@
-web:npm run start --prefix frontend
-server:nodemon server.js
+web:npm start
+server:npm run server
