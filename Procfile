@@ -1,1 +1,2 @@
-web:npm start && npm run server
+web:npm start
+server:nodemon server.js
