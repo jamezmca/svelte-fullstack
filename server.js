@@ -1,7 +1,7 @@
 const axios = require('axios')
 const cheerio = require('cheerio')
 const app = (require('express'))()
-const port = 8008
+const port = process.env.PORT|| 8008
 app.use(require('cors')())
 
 
