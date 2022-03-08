@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "next",
+    "@sveltejs/adapter-node": "^1.0.0-next.71",
     "@sveltejs/kit": "next",
     "autoprefixer": "^10.4.2",
     "eslint": "^7.32.0",
@@ -23,8 +24,5 @@
     "svelte": "^3.44.0",
     "tailwindcss": "^3.0.23"
   },
-  "type": "module",
-  "dependencies": {
-    "@sveltejs/adapter-node": "^1.0.0-next.71"
-  }
+  "type": "module"
 }
