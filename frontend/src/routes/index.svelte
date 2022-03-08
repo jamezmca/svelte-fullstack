@@ -13,10 +13,11 @@
 	// });
 	export async function load({ fetch, params }) {
 		//where params is url params
-		const baseUrl = `http://localhost:8008/`;
+		// const baseUrl = `http://localhost:8008/`;
 		const data = await Promise.all(
 			stocks.map(async (stock) => {
-				const res = await fetch(baseUrl + stock);
+				// const res = await fetch(baseUrl + stock);
+				const res = await fetch(`/${stock}`);
 				return await res.json();
 			})
 		);
