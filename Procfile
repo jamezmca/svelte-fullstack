@@ -1,2 +1,2 @@
-web:npm start
+web:npm run start -- --port $PORT --host 0.0.0.0
 server:npm run server
