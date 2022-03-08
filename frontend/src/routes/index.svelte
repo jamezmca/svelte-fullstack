@@ -16,8 +16,8 @@
 		const baseUrl = `http://localhost:8008/`;
 		const data = await Promise.all(
 			stocks.map(async (stock) => {
-				// const res = await fetch(baseUrl + stock);
-				const res = await fetch(`/${stock}`);
+				const res = await fetch(baseUrl + stock);
+				// const res = await fetch(`/${stock}`);
 				return await res.json();
 			})
 		);
