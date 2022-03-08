@@ -2,7 +2,7 @@
   "name": "svelte-tutorial",
   "version": "0.0.1",
   "engines": {
-    "node": "16.x",
+    "node": "14.x",
     "npm": "8.x"
   },
   "scripts": {
