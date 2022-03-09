@@ -4,9 +4,9 @@ const app = (require('express'))()
 const port = process.env.PORT|| 8008
 app.use(require('cors')())
 
-if (process.env.NODE_ENV === 'production') {
-    app.use(express.static('frontend/build'))
-}
+// if (process.env.NODE_ENV === 'production') {
+//     app.use(express.static('frontend/build'))
+// }
 
 app.get('/:ticker', async (req, res) => {
     //read from db here first
